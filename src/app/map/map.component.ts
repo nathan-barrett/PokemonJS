@@ -11,7 +11,10 @@ export class MapComponent implements OnInit {
 
   @ViewChild('areaMap') areaMap: ElementRef;
 
-  map = new Map(
+  tileSet;
+  sourceTileSize: number = 16;
+  ctx: CanvasRenderingContext2D;
+  map: Map = new Map(
     64, //tile size of 64px
     'location of tilset image',
     10, //number of cols in the map
@@ -32,18 +35,47 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   ngAfterViewInit() {
-    let ctx: CanvasRenderingContext2D = this.areaMap.nativeElement.getContext('2d');
-
-    ctx.clearRect(0, 0, 640, 640);
-    let tileSet = new Image();
-    tileSet.onload = function(){
-      ctx.drawImage(tileSet,16,0,16,16,0,0,64,64);
+    this.ctx = this.areaMap.nativeElement.getContext('2d');
+    this.ctx.clearRect(0, 0, 640, 640);
+    this.tileSet = new Image();
+    this.tileSet.src = './../../assets/images/tilesetz.png';
+    this.tileSet.onload = () => {
+      this.drawMap();
     }
-    tileSet.src = './../../assets/images/tilesetz.png';
-    // ctx.fillStyle = 'rgb(150, 150, 150)';
-    // ctx.fillRect(0, 0, 640, 640);
-    // ctx.drawImage(tileSet, 32, 0, 16, 16, 0, 0, 64, 64);
-    ctx.drawImage(tileSet, 0, 0);
   }
 
+  // drawTile(tile: number, x: number, y: number){
+  //   if (tile === 1){
+  //     draw a tree
+  //   } else {
+  //     draw grass
+  //   }
+  // }
+
+  drawMap(){
+    for (let column = 0; column < this.map.columns; column++){
+      for (let row = 0; row < this.map.rows; row++){
+        let tile = this.map.getTile(column, row);
+        let sourceX, sourceY;
+        if (tile == 0) { // 0 => grass tile
+          sourceX = 1 * this.sourceTileSize + 1;
+          sourceY = 0;
+        } else  {
+          sourceX = 11 * this.sourceTileSize;
+          sourceY = 0;
+        }
+        this.ctx.drawImage(
+          this.tileSet, //images
+          sourceX, // source x
+          sourceY, // source y
+          this.sourceTileSize, //source width
+          this.sourceTileSize, //source height
+          column * this.map.tileSize, // target x coord
+          row * this.map.tileSize, // target y coord
+          this.map.tileSize, // target width
+          this.map.tileSize, // target height
+        )
+      }
+    }
+  }
 }
