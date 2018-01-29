@@ -7,6 +7,7 @@ import { Map } from '../map.model';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  ngOnInit(){}
 
   @ViewChild('areaMap') areaMap: ElementRef;
 
@@ -30,19 +31,19 @@ export class MapComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     let ctx: CanvasRenderingContext2D = this.areaMap.nativeElement.getContext('2d');
 
     ctx.clearRect(0, 0, 640, 640);
-    ctx.fillStyle = 'rgb(200, 0, 0)';
-    ctx.fillRect(10, 12, 50, 64);
-  }
-
-  drawStuff(){
-    let ctx: CanvasRenderingContext2D = this.areaMap.nativeElement.getContext('2d');
-
-    ctx.fillStyle = 'rgb(200, 0, 0)';
-    ctx.fillRect(0, 0, 640, 640);
+    let tileSet = new Image();
+    tileSet.onload = function(){
+      ctx.drawImage(tileSet,16,0,16,16,0,0,64,64);
+    }
+    tileSet.src = './../../assets/images/tilesetz.png';
+    // ctx.fillStyle = 'rgb(150, 150, 150)';
+    // ctx.fillRect(0, 0, 640, 640);
+    // ctx.drawImage(tileSet, 32, 0, 16, 16, 0, 0, 64, 64);
+    ctx.drawImage(tileSet, 0, 0);
   }
 
 }
