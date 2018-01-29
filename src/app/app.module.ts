@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BattleComponent } from './battle/battle.component';
+import { MapComponent } from './map/map.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BattleComponent
+    BattleComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule
