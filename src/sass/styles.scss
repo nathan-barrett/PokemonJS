@@ -1,0 +1,83 @@
+@import './variables';
+@import './mixins';
+#battle-container {
+  display: flex;
+  margin: 5% 5% 0 5%;
+  border: 2px solid black;
+  .user-info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 500px;
+    .pokemon-display {
+      display: flex;
+      width: 100%;
+      position: relative;
+      height: 300px;
+      .grey-oval {
+        background-color: grey;
+        width: 80%;
+        align-self: flex-end;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+    }
+    .health-bar {
+      border: 2px solid black;
+      height: 120px;
+      margin: 15px auto;
+      width: 90%;
+      .character-stats {
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        padding: 2%;
+      }
+    }
+  }
+  .opponent-info {
+    width: 50%;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    .pokemon-display {
+      display: flex;
+      width: 100%;
+      position: relative;
+      height: 300px;
+      .grey-oval {
+        background-color: grey;
+        width: 50%;
+        align-self: flex-end;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+    }
+    .health-bar {
+      border: 2px solid black;
+      height: 120px;
+      margin: 15px auto;
+      width: 90%;
+      align-self: flex-end;
+      padding: 2%;
+      .character-stats {
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+#menu {
+  margin: 0 5% 0 5%;
+  width: 90%;
+  border: 2px solid black;
+  height: 200px;
+  .left-menu {
+    border-right: 1px solid black;
+    width: 55%;
+    height: 100%;
+  }
+}
