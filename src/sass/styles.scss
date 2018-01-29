@@ -1,83 +1,69 @@
 @import './variables';
 @import './mixins';
-#battle-container {
-  display: flex;
-  margin: 5% 5% 0 5%;
-  border: 2px solid black;
-  .user-info {
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    height: 500px;
-    .pokemon-display {
-      display: flex;
-      width: 100%;
-      position: relative;
-      height: 300px;
-      .grey-oval {
-        background-color: grey;
-        width: 80%;
-        align-self: flex-end;
-        height: 50px;
-        margin: 0 auto;
-        border-radius: 50%;
-      }
-    }
-    .health-bar {
-      border: 2px solid black;
-      height: 120px;
-      margin: 15px auto;
-      width: 90%;
-      .character-stats {
-        height: 50%;
-        display: flex;
-        justify-content: space-between;
-        padding: 2%;
-      }
-    }
-  }
-  .opponent-info {
-    width: 50%;
-    height: 500px;
-    display: flex;
-    flex-wrap: wrap;
-    .pokemon-display {
-      display: flex;
-      width: 100%;
-      position: relative;
-      height: 300px;
-      .grey-oval {
-        background-color: grey;
-        width: 50%;
-        align-self: flex-end;
-        height: 50px;
-        margin: 0 auto;
-        border-radius: 50%;
-      }
-    }
-    .health-bar {
-      border: 2px solid black;
-      height: 120px;
-      margin: 15px auto;
-      width: 90%;
-      align-self: flex-end;
-      padding: 2%;
-      .character-stats {
-        height: 50%;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-  }
+@import '../app/battle/battle.component.scss';
+
+
+@font-face {
+  font-family: PokemonGB;
+  src: url(../assets/PokemonGB.ttf);
 }
-#menu {
-  margin: 0 5% 0 5%;
-  width: 90%;
-  border: 2px solid black;
-  height: 200px;
-  .left-menu {
-    border-right: 1px solid black;
-    width: 55%;
-    height: 100%;
-  }
+
+body {
+  font-family: PokemonGB;
 }
+
+.pxl-border {
+  box-shadow:
+    0   -6px 0  -2px $color-container,
+    0    6px 0  -2px $color-container,
+    0  -12px 0  -4px $color-container,
+    0   12px 0  -4px $color-container,
+    0  -18px 0  -8px $color-container,
+    0   18px 0  -8px $color-container,
+    0  -24px 0 -12px $color-container,
+    0   24px 0 -12px $color-container,
+  /* Inner Border */
+   -2px  0   0   0   $color-border,
+    2px  0   0   0   $color-border,
+    0   -4px 0   0   $color-border,
+    0    4px 0   0   $color-border,
+    0  -10px 0  -2px $color-border,
+    0   10px 0  -2px $color-border,
+    0  -14px 0  -4px $color-border,
+    0   14px 0  -4px $color-border,
+    0  -20px 0  -8px $color-border,
+    0   20px 0  -8px $color-border,
+    0  -26px 0 -12px $color-border,
+    0   26px 0 -12px $color-border,
+    /* Middle Border */
+   -4px  0   0   0   $color-border-accent,
+    4px  0   0   0   $color-border-accent,
+    0   -2px 0   2px $color-border-accent,
+    0    2px 0   2px $color-border-accent,
+    0   -8px 0   0px $color-border-accent,
+    0    8px 0   0px $color-border-accent,
+    0  -12px 0  -2px $color-border-accent,
+    0   12px 0  -2px $color-border-accent,
+    0  -16px 0  -4px $color-border-accent,
+    0   16px 0  -4px $color-border-accent,
+    0  -22px 0  -8px $color-border-accent,
+    0   22px 0  -8px $color-border-accent,
+    0  -28px 0 -12px $color-border-accent,
+    0   28px 0 -12px $color-border-accent,
+  /* Outer Border */
+   -6px  0   0   0   $color-border,
+    6px  0   0   0   $color-border,
+    0    0   0   4px $color-border,
+    0   -6px 0   2px $color-border,
+    0    6px 0   2px $color-border,
+    0  -10px 0   0   $color-border,
+    0   10px 0   0   $color-border,
+    0  -14px 0  -2px $color-border,
+    0   14px 0  -2px $color-border,
+    0  -18px 0  -4px $color-border,
+    0   18px 0  -4px $color-border,
+    0  -24px 0  -8px $color-border,
+    0   24px 0  -8px $color-border,
+    0  -30px 0 -12px $color-border,
+    0   30px 0 -12px $color-border
+  }

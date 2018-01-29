@@ -1,0 +1,119 @@
+#battle-container {
+  display: flex;
+  margin: 5% 5% 0 5%;
+  border: 2px solid black;
+  .user-info {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 500px;
+    .pokemon-display {
+      display: flex;
+      width: 100%;
+      position: relative;
+      height: 300px;
+      .grey-oval {
+        background-color: grey;
+        width: 80%;
+        align-self: flex-end;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+    }
+    .health-bar {
+      height: 120px;
+      margin: 15px auto;
+      width: 90%;
+        padding: 2%;
+      .character-stats {
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        padding: 2%;
+      }
+    }
+  }
+  .opponent-info {
+    width: 50%;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    .pokemon-display {
+      display: flex;
+      width: 100%;
+      position: relative;
+      height: 300px;
+      .grey-oval {
+        background-color: grey;
+        width: 50%;
+        align-self: flex-end;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+    }
+    .health-bar {
+      height: 120px;
+      margin: 15px auto;
+      width: 90%;
+      align-self: flex-end;
+      padding: 2%;
+      .character-stats {
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.bar {
+  display: flex;
+  height: 50%;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  padding: 1.5%;
+  p {
+    align-self: center;
+  }
+  progress {
+    width: 80%;
+  }
+}
+
+#menu {
+  margin: 0 5% 0 5%;
+  width: 90%;
+  border: 2px solid black;
+  height: 200px;
+  display: flex;
+  .left-menu {
+    border-right: 1px solid black;
+    width: 50%;
+    height: 100%;
+    padding: 3% 10% 3% 2%;
+    display: flex;
+    align-content: center;
+    #menu-prompt {
+      width: 90%;
+      font-size: 2rem;
+      margin: 0 auto;
+
+    }
+  }
+  .right-menu {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 2.5%;
+    h3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
