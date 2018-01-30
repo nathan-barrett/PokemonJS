@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BattleComponent } from './battle/battle.component';
+import { MovesComponent } from './moves/moves.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BattleComponent
+    BattleComponent,
+    MovesComponent
   ],
   imports: [
     BrowserModule
