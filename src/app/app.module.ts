@@ -4,12 +4,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BattleComponent } from './battle/battle.component';
+import { StarterComponent } from './starter/starter.component';
+import { Pokemon } from './pokemon.model';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BattleComponent
+    BattleComponent,
+    StarterComponent
   ],
   imports: [
     BrowserModule
