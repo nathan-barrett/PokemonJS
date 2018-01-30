@@ -1,7 +1,7 @@
 #battle-container {
   display: flex;
   margin: 5% 5% 0 5%;
-  border: 2px solid black;
+  // border: 2px solid black;
   .user-info {
     margin-top: 20px;
     display: flex;
@@ -26,7 +26,8 @@
       height: 120px;
       margin: 15px auto;
       width: 90%;
-        padding: 2%;
+      padding: 2%;
+      background: #f8f9d8;
       .character-stats {
         height: 50%;
         display: flex;
@@ -60,6 +61,8 @@
       width: 90%;
       align-self: flex-end;
       padding: 2%;
+      background: #f8f9d8;
+
       .character-stats {
         height: 50%;
         display: flex;
@@ -94,39 +97,67 @@
   height: 200px;
   display: flex;
   &:before, &:after {
-    content: ''
-    top: 0
-    width: 5px
-    height: 100%
-    position: absolute
-    background: black
+    content: '';
+    top: 0;
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    background: black;
   }
-  
-
+  &:before {
+    left: -5px;
+  }
+  &:after {
+    right: -5px;
+  }
   .left-menu {
     border-right: 5px solid black;
     width: 50%;
     height: 100%;
-    padding: 3% 10% 3% 2%;
+    background: black;
     display: flex;
     align-content: center;
+    .yellow-menu {
+      border: 20px solid #c8a848;
+      border-radius: 10%;
+      background: #c8a848;
+    }
+    .inner-menu {
+      border: 10px solid #e1d8e0;
+      border-radius: 10px;
+      height: 100%;
+      background: #295068;
+      display: flex;
+      align-items: center;
+    }
     #menu-prompt {
       width: 90%;
       font-size: 2rem;
       margin: 0 auto;
+      color: #e1d8e0;
+      text-shadow: 5px 5px 5px #5f566d;
 
     }
   }
-  .right-menu {
+  .fight-menu {
+    background: black;
     width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    padding: 2.5%;
-    h3 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .right-menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      padding: 2.5%;
+      border: 15px solid #70687f;
+      border-radius: 20px;
+      height: 100%;
+      background: #f8f8f8;
+      h3 {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        margin-left: 30px;
+      }
     }
+
   }
 }
