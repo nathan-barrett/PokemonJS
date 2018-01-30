@@ -1,0 +1,163 @@
+#battle-container {
+  display: flex;
+  margin: 5% 5% 0 5%;
+  // border: 2px solid black;
+  .user-info {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 500px;
+    .pokemon-display {
+      display: flex;
+      width: 100%;
+      position: relative;
+      height: 300px;
+      .grey-oval {
+        background-color: grey;
+        width: 80%;
+        align-self: flex-end;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+    }
+    .health-bar {
+      height: 120px;
+      margin: 15px auto;
+      width: 90%;
+      padding: 2%;
+      background: #f8f9d8;
+      .character-stats {
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        padding: 2%;
+      }
+    }
+  }
+  .opponent-info {
+    width: 50%;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    .pokemon-display {
+      display: flex;
+      width: 100%;
+      position: relative;
+      height: 300px;
+      .grey-oval {
+        background-color: grey;
+        width: 50%;
+        align-self: flex-end;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+    }
+    .health-bar {
+      height: 120px;
+      margin: 15px auto;
+      width: 90%;
+      align-self: flex-end;
+      padding: 2%;
+      background: #f8f9d8;
+
+      .character-stats {
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.bar {
+  display: flex;
+  height: 50%;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  padding: 1.5%;
+  p {
+    align-self: center;
+  }
+  progress {
+    width: 80%;
+    height: 30px;
+  }
+}
+
+#menu {
+  margin: 0 5% 0 5%;
+  width: 90%;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  position: relative;
+  height: 200px;
+  display: flex;
+  &:before, &:after {
+    content: '';
+    top: 0;
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    background: black;
+  }
+  &:before {
+    left: -5px;
+  }
+  &:after {
+    right: -5px;
+  }
+  .left-menu {
+    border-right: 5px solid black;
+    width: 50%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-content: center;
+    .yellow-menu {
+      border: 20px solid #c8a848;
+      border-radius: 10%;
+      background: #c8a848;
+    }
+    .inner-menu {
+      border: 10px solid #e1d8e0;
+      border-radius: 10px;
+      height: 100%;
+      background: #295068;
+      display: flex;
+      align-items: center;
+    }
+    #menu-prompt {
+      width: 90%;
+      font-size: 2rem;
+      margin: 0 auto;
+      color: #e1d8e0;
+      text-shadow: 5px 5px 5px #5f566d;
+
+    }
+  }
+  .fight-menu {
+    background: black;
+    width: 50%;
+    .right-menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      padding: 2.5%;
+      border: 15px solid #70687f;
+      border-radius: 20px;
+      height: 100%;
+      background: #f8f8f8;
+      h3 {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        margin-left: 30px;
+      }
+    }
+
+  }
+}
