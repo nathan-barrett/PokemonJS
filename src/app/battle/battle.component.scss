@@ -81,17 +81,30 @@
   }
   progress {
     width: 80%;
+    height: 30px;
   }
 }
 
 #menu {
   margin: 0 5% 0 5%;
   width: 90%;
-  border: 2px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  position: relative;
   height: 200px;
   display: flex;
+  &:before, &:after {
+    content: ''
+    top: 0
+    width: 5px
+    height: 100%
+    position: absolute
+    background: black
+  }
+  
+
   .left-menu {
-    border-right: 1px solid black;
+    border-right: 5px solid black;
     width: 50%;
     height: 100%;
     padding: 3% 10% 3% 2%;
