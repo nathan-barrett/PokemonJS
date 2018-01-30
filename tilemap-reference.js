@@ -263,6 +263,12 @@ Game.render = function () {
     this._drawGrid();
 };
 
+
+
+
+
+
+
 // FROM https://github.com/mozdevs/gamedev-js-tiles/blob/gh-pages/common.js
 
 //
