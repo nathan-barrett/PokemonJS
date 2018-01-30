@@ -2,6 +2,7 @@
   display: flex;
   margin: 5% 5% 0 5%;
   // border: 2px solid black;
+
   .user-info {
     margin-top: 20px;
     display: flex;
@@ -42,10 +43,10 @@
     display: flex;
     flex-wrap: wrap;
     .pokemon-display {
-      display: flex;
       width: 100%;
       position: relative;
       height: 300px;
+
       .grey-oval {
         background-color: grey;
         width: 50%;
@@ -160,4 +161,5 @@
     }
 
   }
+
 }

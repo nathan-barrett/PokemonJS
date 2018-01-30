@@ -8,4 +8,8 @@ import { Pokemon } from './pokemon.model';
 })
 export class AppComponent {
   playerPokemon: Pokemon;
+
+  setPlayerPokemon(pokemonObject: Pokemon){
+    this.playerPokemon = pokemonObject;
+  }
 }

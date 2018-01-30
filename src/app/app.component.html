@@ -1,4 +1,4 @@
-<app-starter></app-starter>
+<app-starter (pokemonEmitter)='setPlayerPokemon($event)'></app-starter>
 
 <div>
   <app-battle [childPlayerPokemon]="playerPokemon"></app-battle>
