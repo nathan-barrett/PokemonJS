@@ -57,13 +57,8 @@ export class MapComponent implements OnInit {
       for (let row = 0; row < this.map.rows; row++){
         let tile = this.map.getTile(column, row);
         let sourceX, sourceY;
-        if (tile == 0) { // 0 => grass tile
-          sourceX = 1 * this.sourceTileSize + 1;
-          sourceY = 0;
-        } else  {
-          sourceX = 11 * this.sourceTileSize;
-          sourceY = 0;
-        }
+        sourceX = 1 * this.sourceTileSize + 1;
+        sourceY = 0;
         this.ctx.drawImage(
           this.tileSet, //images
           sourceX, // source x
@@ -75,6 +70,21 @@ export class MapComponent implements OnInit {
           this.map.tileSize, // target width
           this.map.tileSize, // target height
         )
+        if (tile == 1) {
+          sourceX = 40 * this.sourceTileSize;
+          sourceY = 0;
+          this.ctx.drawImage(
+            this.tileSet, //images
+            sourceX, // source x
+            sourceY, // source y
+            this.sourceTileSize, //source width
+            this.sourceTileSize, //source height
+            column * this.map.tileSize, // target x coord
+            row * this.map.tileSize, // target y coord
+            this.map.tileSize, // target width
+            this.map.tileSize, // target height
+          )
+        }
       }
     }
   }
