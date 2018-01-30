@@ -48,5 +48,13 @@
     </div>
   </div>
 </div>
-<app-moves></app-moves>
-<app-run-away></app-run-away>
+<div *ngIf="move-result" class="move-result-menu">
+  <div class="yellow-border">
+    <div class="inner-menu">
+      <h2 *ngIf="attack-success">Pokemon name used movename!</h2>
+      <h2 *ngIf="atatck-failure">Pokemon's attack missed!</h2>
+    </div>
+  </div>
+</div>
+<app-moves *ngIf="move-screen"></app-moves>
+<app-run-away *ngIf="run-away-screen"></app-run-away>
