@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BattleComponent } from './battle/battle.component';
 import { StarterComponent } from './starter/starter.component';
-import { Pokemon } from './pokemon.model';
+import { Pokemon, Pokemonenemy } from './pokemon.model';
 import { HttpModule } from '@angular/http';
 
 

@@ -10,4 +10,8 @@ export class ApiService {
   getStarterPokemonSprite(name: string) {
     return this.http.get("http://pokeapi.co/api/v2/pokemon/" + name)
   }
+
+  getPokemonEnemy(id: number) {
+    return this.http.get("http://pokeapi.co/api/v2/pokemon/" + id)
+  }
 }

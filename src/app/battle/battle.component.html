@@ -2,7 +2,7 @@
   <div class="user-info">
     <div class="health-bar pxl-border">
       <div class="character-stats">
-        <h2 class="name">{{childPlayerPokemon?.name}}</h2>
+        <h2 class="name">{{childEnemyPokemon?.name}}</h2>
         <h2>Lv10</h2>
       </div>
       <div class="bar">
@@ -17,11 +17,12 @@
   </div>
   <div class="opponent-info">
     <div class="pokemon-display">
+      <img src="{{childEnemyPokemon?.sprite}}">
         <div class="grey-oval"></div>
     </div>
     <div class="health-bar pxl-border">
       <div class="character-stats">
-        <h2>POKEMON ENEMY</h2>
+        <h2>{{childPlayerPokemon?.name}}</h2>
         <h2>Lv10</h2>
       </div>
       <div class="HP"></div>
@@ -48,4 +49,5 @@
       <h3>RUN</h3>
     </div>
   </div>
+  <button (click)="getRandomInt(151)">enemy</button>
 </div>
