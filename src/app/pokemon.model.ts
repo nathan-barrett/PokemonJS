@@ -12,6 +12,6 @@ export class Pokemonenemy {
     public sprite: string,
     public hp: number,
     public type: string,
-    public name: string
+    public name: string,
   ) {}
 }

@@ -14,6 +14,7 @@ export class BattleComponent {
   @Input() childEnemyPokemon: Pokemonenemy;
   @Output() enemyEmitter = new EventEmitter();
   opponent;
+  level;
 
   getRandomInt(max) {
     let id = Math.floor(Math.random() * Math.floor(max));
@@ -30,4 +31,10 @@ export class BattleComponent {
       this.enemyEmitter.emit(enemyPokemon);
     });
   }
+
+  randomLevel(max) {
+    let level = Math.floor(Math.random() * Math.floor(max));
+    return level;
+  }
+
 }
