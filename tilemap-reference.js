@@ -40,8 +40,18 @@ var map = {
 
         // tiles 3 and 5 are solid -- the rest are walkable
         // loop through all layers and return TRUE if any tile is solid
+
+        //EXPERIMENTAL REDUCE FUNCTION REWRITE
+        // var reducerFunction = (res, layer, index) => {
+        //   var tile = this.getTile(index, col, row);
+        //   var isSolid = tile === 3 || tile ===5;
+        //   return res || isSolid;
+        // }
+        // return this.layers.reduce(reducerFunction(res, layer, index), false);
+
+        // THE ORIGINAL REDUCE FUNCTION
         return this.layers.reduce(function (res, layer, index) {
-            var tile = this.getTile(index, col, row);
+            var tile = this.getTile(index, col, row); //index is the current position in the layers array as the reduce function loops through layers. Here it tells the getTile() function which array to look at.
             var isSolid = tile === 3 || tile === 5;
             return res || isSolid;
         }.bind(this), false);

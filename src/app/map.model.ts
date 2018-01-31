@@ -12,4 +12,13 @@ export class Map {
   getTile(col: number, row: number){
     return this.tileGrid[row * this.columns + col];
   }
+
+  isSolidTileAtXY(x: number, y: number){
+    let col = Math.floor(x / this.tileSize);
+    let row = Math.floor(y / this.tileSize);
+
+    // 1 tiles are solid, 0 tiles are walkable
+    let tile = this.getTile(col, row);
+    return (tile === 1);
+  }
 }
