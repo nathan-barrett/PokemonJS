@@ -123,4 +123,7 @@ export class BattleComponent implements OnInit{
     this.childPlayerPokemon.currentHp = this.childPlayerPokemon.currentHp - attackAmt;
   }
 
+  endBattle(){
+    this.endBattleEmitter.emit();
+  }
 }
