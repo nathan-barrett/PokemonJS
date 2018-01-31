@@ -10,13 +10,18 @@ export class AppComponent {
 
   playerPokemon: Pokemon;
   enemyPokemon: Pokemonenemy;
-  battle: boolean = true;
+  battle: boolean = false;
 
   setPlayerPokemon(pokemonObject: Pokemon){
     this.playerPokemon = pokemonObject;
-    this.battle = true;
   }
+
   setEnemyPokemon(enemyObject: Pokemonenemy) {
     this.enemyPokemon = enemyObject;
+  }
+
+  toggleBattle(){
+    console.log("Fight message received, toggling battle");
+    this.battle = !this.battle;
   }
 }
