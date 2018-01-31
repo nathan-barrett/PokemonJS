@@ -6,8 +6,8 @@
         <h2>Lv10</h2>
       </div>
       <div class="bar">
-        HP<progress value="100" max="100">0%</progress>
-          <h5>{{childEnemyPokemon?.hp}}/{{childEnemyPokemon?.hp}}</h5>
+        HP<progress value={{childEnemyPokemon?.currentHp}} max={{childEnemyPokemon?.hp}}>0%</progress>
+          <h5>{{childEnemyPokemon?.currentHp}}/{{childEnemyPokemon?.hp}}</h5>
       </div>
     </div>
     <div class="pokemon-display">
@@ -33,7 +33,7 @@
     </div>
   </div>
 </div>
-<div id="menu">
+<div *ngIf="startMenu" id="menu">
   <div class="left-menu">
     <div class="yellow-menu">
       <div class="inner-menu">
@@ -43,7 +43,7 @@
   </div>
   <div class="fight-menu">
     <div class="right-menu">
-      <h3>FIGHT</h3>
+      <h3 (click)="goToMoveList()">FIGHT</h3>
       <h3>BAG</h3>
       <h3>POKEMON</h3>
       <h3>RUN</h3>
@@ -51,13 +51,13 @@
   </div>
   <button (click)="getRandomInt(151)" (click)="randomLevel(20)">enemy</button>
 </div>
-<div *ngIf="move-result" class="move-result-menu">
+<div *ngIf="moveResult" class="move-result-menu">
   <div class="yellow-border">
     <div class="inner-menu">
-      <h2 *ngIf="attack-success">Pokemon name used movename!</h2>
-      <h2 *ngIf="atatck-failure">Pokemon's attack missed!</h2>
+      <h2 *ngIf="attackSuccess">{{childPlayerPokemon?.name}} used {{this.selectedMove}}!</h2>
+      <h2 *ngIf="attackFailure">{{childPlayerPokemon?.name}}'s attack missed!</h2>
     </div>
   </div>
 </div>
-<app-moves *ngIf="move-screen"></app-moves>
-<app-run-away *ngIf="run-away-screen"></app-run-away>
+<app-moves *ngIf="moveScreen" [childPlayerPokemon]="childPlayerPokemon" (attackEmitter)="setDamage($event)"></app-moves>
+<app-run-away *ngIf="runScreen"></app-run-away>

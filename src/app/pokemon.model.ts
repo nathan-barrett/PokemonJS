@@ -3,15 +3,19 @@ export class Pokemon {
     public sprite: string,
     public hp: number,
     public type: string,
-    public name: string
+    public name: string,
+    public moves: string[]
   ){}
 }
 
 export class Pokemonenemy {
+  level: number;
   constructor (
     public sprite: string,
     public hp: number,
+    public currentHp: number,
     public type: string,
     public name: string,
+    public moves: string[],
   ) {}
 }
