@@ -137,9 +137,3 @@ export class Game {
     // this._drawGrid();
   }
 }
-
-  // START UP FUNCTION
-//   window.onload = function() {
-//     const context = document.getElementById('areaMap').getContext('2d');
-//     Game.run(context);
-//   }

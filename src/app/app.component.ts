@@ -7,6 +7,7 @@ import { Pokemon, Pokemonenemy } from './pokemon.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   playerPokemon: Pokemon;
   enemyPokemon: Pokemonenemy;
   battle: boolean = true;

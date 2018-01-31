@@ -1,10 +1,10 @@
 <div id="move-menu">
   <div class="left-menu">
     <div class="inner-menu">
-      <h3>move 1</h3>
-      <h3>move 2</h3>
-      <h3>move 3</h3>
-      <h3>move 4</h3>
+      <h3 (click)="attack(childPlayerPokemon.moves[0])">{{childPlayerPokemon?.moves[0]}}</h3>
+      <h3 (click)="attack(childPlayerPokemon.moves[1])">{{childPlayerPokemon?.moves[1]}}</h3>
+      <h3 (click)="attack(childPlayerPokemon.moves[2])">{{childPlayerPokemon?.moves[2]}}</h3>
+      <h3 (click)="attack(childPlayerPokemon.moves[3])">{{childPlayerPokemon?.moves[3]}}</h3>
     </div>
   </div>
   <div class="right-menu">
