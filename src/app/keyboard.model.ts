@@ -4,6 +4,11 @@ export class Keyboard {
   UP = 38;
   DOWN = 40;
 
+  A_LEFT = 65;
+  D_RIGHT = 68;
+  W_UP = 87;
+  S_DOWN = 83;
+
   _keys = {};
 
   listenForEvents(keys) {
