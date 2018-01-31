@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
   keyboard: Keyboard = new Keyboard();
   map: Map = new Map(
     64, //tile size of 64px
-    'location of tilset image',
+    // '../../assets/images/tilesetz.png',
     10, //number of cols in the map
     10, //number of rows in the map
     [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
