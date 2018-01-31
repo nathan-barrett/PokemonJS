@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pokemon, Pokemonenemy } from './pokemon.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  playerPokemon: Pokemon;
+  enemyPokemon: Pokemonenemy;
+  battle: boolean = true;
+
+  setPlayerPokemon(pokemonObject: Pokemon){
+    this.playerPokemon = pokemonObject;
+    this.battle = true;
+  }
+  setEnemyPokemon(enemyObject: Pokemonenemy) {
+    this.enemyPokemon = enemyObject;
+  }
 }

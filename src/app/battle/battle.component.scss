@@ -2,6 +2,7 @@
   display: flex;
   margin: 5% 5% 0 5%;
   // border: 2px solid black;
+
   .user-info {
     margin-top: 20px;
     display: flex;
@@ -9,12 +10,19 @@
     width: 50%;
     height: 500px;
     .pokemon-display {
-      display: flex;
       width: 100%;
       position: relative;
       height: 300px;
+      display: flex;
+      align-items: center;
+      .player-pokemon {
+        width: 250px;
+        position: absolute;
+        left: 30%;
+        top: 30%;
+      }
       .grey-oval {
-        background-color: grey;
+        background-color: #c5c5c5;
         width: 80%;
         align-self: flex-end;
         height: 50px;
@@ -34,6 +42,9 @@
         justify-content: space-between;
         padding: 2%;
       }
+      .bar {
+        margin: 24px;
+      }
     }
   }
   .opponent-info {
@@ -42,14 +53,21 @@
     display: flex;
     flex-wrap: wrap;
     .pokemon-display {
-      display: flex;
       width: 100%;
       position: relative;
       height: 300px;
+      display: flex;
+      align-items: center;
+      img {
+        width: 200px;
+        position: absolute;
+        left: 40%;
+        top: 0%;
+      }
+
       .grey-oval {
-        background-color: grey;
+        background-color: #c5c5c5;
         width: 50%;
-        align-self: flex-end;
         height: 50px;
         margin: 0 auto;
         border-radius: 50%;
@@ -118,9 +136,10 @@
     display: flex;
     align-content: center;
     .yellow-menu {
-      border: 20px solid #c8a848;
+      border: 10px solid #c8a848;
       border-radius: 20px;
       background: #c8a848;
+      width: 100%;
     }
     .inner-menu {
       border: 10px solid #e1d8e0;
@@ -198,4 +217,5 @@
       justify-content: space-around;
     }
   }
+
 }

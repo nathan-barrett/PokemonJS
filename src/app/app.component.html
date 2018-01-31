@@ -1,1 +1,5 @@
-<app-battle></app-battle>
+<app-starter (pokemonEmitter)='setPlayerPokemon($event)'></app-starter>
+
+<div *ngIf="battle">
+  <app-battle (enemyEmitter)='setEnemyPokemon($event)' [childPlayerPokemon]="playerPokemon" [childEnemyPokemon]="enemyPokemon"></app-battle>
+</div>
