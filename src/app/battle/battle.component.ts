@@ -27,11 +27,11 @@ export class BattleComponent {
   randomAttack: number;
 
 
+
   getRandomInt(max) {
     let id = Math.floor(Math.random() * Math.floor(max));
     return this.apiRandomEnemy(id);
   }
-
   constructor(private api: ApiService) { }
   apiRandomEnemy(id: number) {
     this.api.getPokemonEnemy(id).subscribe(response => {

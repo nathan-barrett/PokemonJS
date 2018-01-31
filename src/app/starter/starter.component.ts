@@ -16,7 +16,6 @@ export class StarterComponent {
     this.api.getStarterPokemonSprite(name).subscribe(response => {
       this.starter = response.json();
       const selectedPokemon = new Pokemon(this.starter.sprites.back_default, this.starter.stats[5].base_stat, this.starter.stats[5].base_stat, this.starter.types[0].type.name, this.starter.name, [this.starter.moves[0].move.name, this.starter.moves[1].move.name, this.starter.moves[2].move.name, this.starter.moves[3].move.name]);
-      console.log(selectedPokemon);
       this.pokemonEmitter.emit(selectedPokemon);
     });
   }
