@@ -235,7 +235,7 @@ Game._drawLayer = function (layer) {
     }
 };
 
-// DON'T WANT A GRID OVERLAYED ON OUR MAP 
+// DON'T WANT A GRID OVERLAYED ON OUR MAP
 // Game._drawGrid = function () {
 //         var width = map.cols * map.tsize;
 //     var height = map.rows * map.tsize;
@@ -375,7 +375,7 @@ Game.run = function (context) {
 };
 
 Game.tick = function (elapsed) {
-    window.requestAnimationFrame(this.tick);
+    window.requestAnimationFrame(this.tick());
 
     // clear previous frame
     this.ctx.clearRect(0, 0, 512, 512);

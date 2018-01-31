@@ -9,7 +9,9 @@ export class Game {
   private hero: Hero;
   private tileAtlas;
 
-  constructor(public loader: Loader, public keyboard: Keyboard, public map: Map){}
+  constructor(public loader: Loader, public keyboard: Keyboard, public map: Map){
+    this.tick = this.tick.bind(this);
+  }
 
   run(context){
     this.ctx = context;
@@ -26,9 +28,9 @@ export class Game {
     window.requestAnimationFrame(this.tick);
 
     // clear previous frame
-    this.ctx.clearRect(0, 0, 512, 512);
+    this.ctx.clearRect(0, 0, 640, 640);
 
-    // compute delta time in seconds -- also casp it
+    // compute delta time in seconds -- also cap it
     let delta = (elapsed - this._previousElapsed) / 1000.0;
     delta = Math.min(delta, 0.25); // maximum delta of 250 ms
     this._previousElapsed = elapsed;
