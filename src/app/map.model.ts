@@ -21,4 +21,20 @@ export class Map {
     let tile = this.getTile(col, row);
     return (tile === 1);
   }
+
+  getCol(x: number) {
+    return Math.floor(x / this.tileSize);
+  }
+
+  getRow(y: number) {
+    return Math.floor(y / this.tileSize);
+  }
+
+  getX(col: number){
+    return col * this.tileSize;
+  }
+
+  getY(row: number){
+    return row * this.tileSize;
+  }
 }
