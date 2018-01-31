@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Pokemon, Pokemonenemy } from '../pokemon.model';
 
@@ -9,10 +9,11 @@ import { Pokemon, Pokemonenemy } from '../pokemon.model';
   providers: [ApiService]
 })
 
-export class BattleComponent {
+export class BattleComponent implements OnInit{
   @Input() childPlayerPokemon: Pokemon;
   @Input() childEnemyPokemon: Pokemonenemy;
   @Output() enemyEmitter = new EventEmitter();
+  @Output() endBattleEmitter = new EventEmitter();
   opponent;
   level;
   startMenu: boolean = true;
@@ -23,28 +24,44 @@ export class BattleComponent {
   attackSuccess: boolean = false;
   attackFailure: boolean = false;
 
+  constructor(private api: ApiService) { }
+
+  ngOnInit(){
+    this.getRandomInt(150);
+  }
 
   getRandomInt(max) {
     let id = Math.floor(Math.random() * Math.floor(max));
     return this.apiRandomEnemy(id);
   }
 
-  constructor(private api: ApiService) { }
+
   apiRandomEnemy(id: number) {
     this.api.getPokemonEnemy(id).subscribe(response => {
       this.opponent = response.json();
-      const enemyPokemon = new Pokemonenemy(this.opponent.sprites.front_default, this.opponent.stats[5].base_stat, this.opponent.stats[5].base_stat, this.opponent.types[0].type.name, this.opponent.name,[this.opponent.moves[0].move.name, this.opponent.moves[1].move.name, this.opponent.moves[2].move.name, this.opponent.moves[3].move.name]);
+      const enemyPokemon = new Pokemonenemy(
+        this.opponent.sprites.front_default,
+        this.opponent.stats[5].base_stat,
+        this.opponent.stats[5].base_stat,
+        this.opponent.types[0].type.name,
+        this.opponent.name,
+        [
+          this.opponent.moves[0].move.name, this.opponent.moves[1].move.name, this.opponent.moves[2].move.name, this.opponent.moves[3].move.name
+        ]);
       this.enemyEmitter.emit(enemyPokemon);
     });
   }
+
   randomLevel(max) {
     let level = Math.floor(Math.random() * Math.floor(max));
     return level;
   }
+
   goToMoveList() {
     this.startMenu = false
     this.moveScreen = true
   }
+
   setDamage(moveName) {
     this.moveScreen = false;
     this.moveResult = true;
@@ -54,6 +71,7 @@ export class BattleComponent {
       this.returnToMenu()
     }, 4000)
   }
+
   attackAccuracy() {
     let number = Math.floor(Math.random() * Math.floor(100));
     if (number <= 30) {

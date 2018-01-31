@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, Directive, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Directive, ElementRef, Output, EventEmitter } from '@angular/core';
 import { Map } from '../map.model';
 import { Game } from '../game.model';
 import { Keyboard } from '../keyboard.model';
@@ -14,6 +14,7 @@ export class MapComponent implements OnInit {
   ngOnInit(){}
 
   @ViewChild('areaMap') areaMap: ElementRef;
+  @Output() fightEmitter = new EventEmitter();
 
   // tileSet;
   sourceTileSize: number = 16;
@@ -47,6 +48,11 @@ export class MapComponent implements OnInit {
     this.ctx = this.areaMap.nativeElement.getContext('2d');
 
     this.game.run(this.ctx);
+  }
+
+  makeFight(){
+    console.log("Making fight...");
+    this.fightEmitter.emit();
   }
 
 }
