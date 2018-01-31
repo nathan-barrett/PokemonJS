@@ -23,6 +23,9 @@ export class BattleComponent implements OnInit{
   selectedMove: string;
   attackSuccess: boolean = false;
   attackFailure: boolean = false;
+  enemySuccess: boolean = false;
+  enemyFailure: boolean = false;
+  randomAttack: number;
 
   constructor(private api: ApiService) { }
 
@@ -51,10 +54,29 @@ export class BattleComponent implements OnInit{
       this.enemyEmitter.emit(enemyPokemon);
     });
   }
-
-  randomLevel(max) {
-    let level = Math.floor(Math.random() * Math.floor(max));
-    return level;
+  // switchTurn(){
+  //   this.playerTurn = !this.playerTurn;
+  // }
+  enemyAttack() {
+    this.randomAttack = Math.floor(Math.random() * (4 - 0) + 0);
+    console.log(this.childEnemyPokemon.moves[this.randomAttack]);
+    this.attackSuccess = false;
+    this.attackFailure = false;
+    let number = Math.floor(Math.random() * Math.floor(100));
+    if (number <= 30) {
+      this.enemyFailure = true;
+      this.enemySuccess = false;
+      setTimeout(() => {
+        this.returnToMenu()
+      }, 3000)
+    } else {
+      this.enemySuccess = true;
+      this.enemyFailure = false;
+      this.randomNumberEnemy()
+      setTimeout(() => {
+        this.returnToMenu()
+      }, 3000)
+    }
   }
 
   goToMoveList() {
@@ -65,10 +87,12 @@ export class BattleComponent implements OnInit{
   setDamage(moveName) {
     this.moveScreen = false;
     this.moveResult = true;
+    this.enemySuccess = false;
+    this.enemyFailure = false;
     this.attackAccuracy()
     this.selectedMove = moveName;
     setTimeout(() => {
-      this.returnToMenu()
+      this.enemyAttack()
     }, 4000)
   }
 
@@ -76,8 +100,10 @@ export class BattleComponent implements OnInit{
     let number = Math.floor(Math.random() * Math.floor(100));
     if (number <= 30) {
       this.attackFailure = true;
+      this.attackSuccess = false;
     } else {
       this.attackSuccess = true;
+      this.attackFailure = false;
       this.randomNumber()
     }
   }
@@ -91,7 +117,10 @@ export class BattleComponent implements OnInit{
     let attackAmt = Math.floor(Math.random() * (25 - 5) + 5);
     this.childEnemyPokemon.currentHp = this.childEnemyPokemon.currentHp - attackAmt;
     console.log(this.childEnemyPokemon.currentHp);
-
+  }
+  randomNumberEnemy() {
+    let attackAmt = Math.floor(Math.random() * (25 - 5) + 5);
+    this.childPlayerPokemon.currentHp = this.childPlayerPokemon.currentHp - attackAmt;
   }
 
 }
