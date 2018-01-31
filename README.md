@@ -27,6 +27,8 @@ Launch local server.
 $ ng serve --o
 ```
 
+Install [Allow-Control-Allow-Origin Chrome Plugin](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en)
+
 ## Built with
 
 * This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
