@@ -17,8 +17,6 @@ export class Game {
   run(context){
     this.ctx = context;
     this._previousElapsed = 0;
-  }
-}
 
     let p = this.load();
     Promise.all(p).then(function (loaded) {
@@ -139,9 +137,3 @@ export class Game {
     // this._drawGrid();
   }
 }
-
-  START UP FUNCTION
-  window.onload = function() {
-    const context = document.getElementById('areaMap').getContext('2d');
-    Game.run(context);
-  }
