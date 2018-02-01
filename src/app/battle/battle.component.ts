@@ -9,11 +9,10 @@ import { Pokemon, Pokemonenemy } from '../pokemon.model';
   providers: [ApiService]
 })
 
-export class BattleComponent implements OnInit{
+export class BattleComponent implements OnInit {
   @Input() childPlayerPokemon: Pokemon;
   @Input() childEnemyPokemon: Pokemonenemy;
   @Output() enemyEmitter = new EventEmitter();
-  @Output() endBattleEmitter = new EventEmitter();
   opponent;
   level;
   startMenu: boolean = true;
@@ -23,38 +22,29 @@ export class BattleComponent implements OnInit{
   selectedMove: string;
   attackSuccess: boolean = false;
   attackFailure: boolean = false;
-<<<<<<< HEAD
   death: boolean = false;
-=======
+
   enemySuccess: boolean = false;
   enemyFailure: boolean = false;
+  emptyBag: boolean = false;
+  noPocketmonsters: boolean = false;
+  runSuccess: boolean = false;
+  runFailure: boolean = false;
   randomAttack: number;
-
-  constructor(private api: ApiService) { }
-
-  ngOnInit(){
-    this.getRandomInt(150);
-  }
->>>>>>> 3cb107b4473cb8655f2fc169d8f1227bc720fd9b
 
   getRandomInt(max) {
     let id = Math.floor(Math.random() * Math.floor(max));
     return this.apiRandomEnemy(id);
   }
+  ngOnInit(){
+    this.getRandomInt(150);
+  }
 
-
+  constructor(private api: ApiService) { }
   apiRandomEnemy(id: number) {
     this.api.getPokemonEnemy(id).subscribe(response => {
       this.opponent = response.json();
-      const enemyPokemon = new Pokemonenemy(
-        this.opponent.sprites.front_default,
-        this.opponent.stats[5].base_stat,
-        this.opponent.stats[5].base_stat,
-        this.opponent.types[0].type.name,
-        this.opponent.name,
-        [
-          this.opponent.moves[0].move.name, this.opponent.moves[1].move.name, this.opponent.moves[2].move.name, this.opponent.moves[3].move.name
-        ]);
+      const enemyPokemon = new Pokemonenemy(this.opponent.sprites.front_default, this.opponent.stats[5].base_stat, this.opponent.stats[5].base_stat, this.opponent.types[0].type.name, this.opponent.name,[this.opponent.moves[0].move.name, this.opponent.moves[1].move.name, this.opponent.moves[2].move.name, this.opponent.moves[3].move.name]);
       this.enemyEmitter.emit(enemyPokemon);
     });
   }
@@ -72,22 +62,20 @@ export class BattleComponent implements OnInit{
       this.enemySuccess = false;
       setTimeout(() => {
         this.returnToMenu()
-      }, 3000)
+      }, 4000)
     } else {
       this.enemySuccess = true;
       this.enemyFailure = false;
       this.randomNumberEnemy()
       setTimeout(() => {
         this.returnToMenu()
-      }, 3000)
+      }, 4000)
     }
   }
-
   goToMoveList() {
     this.startMenu = false
     this.moveScreen = true
   }
-
   setDamage(moveName) {
     this.moveScreen = false;
     this.moveResult = true;
@@ -99,7 +87,6 @@ export class BattleComponent implements OnInit{
       this.enemyAttack()
     }, 4000)
   }
-
   attackAccuracy() {
     let number = Math.floor(Math.random() * Math.floor(100));
     if (number <= 30) {
@@ -120,19 +107,63 @@ export class BattleComponent implements OnInit{
   randomNumber() {
     let attackAmt = Math.floor(Math.random() * (25 - 5) + 5);
     this.childEnemyPokemon.currentHp = this.childEnemyPokemon.currentHp - attackAmt;
-<<<<<<< HEAD
+
     if(this.childEnemyPokemon.currentHp < 1){
       console.log("enemy died");
       this.death = true;
     }else{
       console.log("enemy alive" + this.childEnemyPokemon.currentHp);
     }
-=======
+
     console.log(this.childEnemyPokemon.currentHp);
   }
   randomNumberEnemy() {
     let attackAmt = Math.floor(Math.random() * (25 - 5) + 5);
     this.childPlayerPokemon.currentHp = this.childPlayerPokemon.currentHp - attackAmt;
->>>>>>> 3cb107b4473cb8655f2fc169d8f1227bc720fd9b
+
   }
+
+  bagEmpty() {
+    this.moveResult = true;
+    this.emptyBag = true;
+    this.startMenu = false;
+    setTimeout(() => {
+      this.startMenu = true;
+      this.moveResult = false;
+      this.emptyBag = false;
+    }, 4000)
+  }
+  noPokemon() {
+    this.moveResult = true;
+    this.noPocketmonsters = true;
+    this.startMenu = false;
+    setTimeout(() => {
+      this.startMenu = true;
+      this.moveResult = false;
+      this.noPocketmonsters = false;
+    }, 4000)
+  }
+  runAttempt(){
+    let attempt = Math.floor(Math.random() * Math.floor(100));
+    if( attempt <= 80) {
+      this.moveResult =  true;
+      this.runSuccess = true;
+      this.startMenu = false;
+      setTimeout(() => {
+        this.startMenu = true;
+        this.moveResult =  false;
+        this.runSuccess = false;
+      }, 4000)
+    } else {
+      this.moveResult =  true;
+      this.runFailure = true;
+      this.startMenu = false;
+      setTimeout(() => {
+        this.startMenu = true;
+        this.moveResult =  false;
+        this.runFailure = false;
+      }, 4000)
+    }
+  }
+
 }
