@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Pokemon, Pokemonenemy } from '../pokemon.model';
 
@@ -9,7 +9,7 @@ import { Pokemon, Pokemonenemy } from '../pokemon.model';
   providers: [ApiService]
 })
 
-export class BattleComponent {
+export class BattleComponent implements OnInit {
   @Input() childPlayerPokemon: Pokemon;
   @Input() childEnemyPokemon: Pokemonenemy;
   @Output() enemyEmitter = new EventEmitter();
@@ -24,12 +24,20 @@ export class BattleComponent {
   attackFailure: boolean = false;
   enemySuccess: boolean = false;
   enemyFailure: boolean = false;
+  emptyBag: boolean = false;
+  noPocketmonsters: boolean = false;
+  runSuccess: boolean = false;
+  runFailure: boolean = false;
   randomAttack: number;
+
 
 
   getRandomInt(max) {
     let id = Math.floor(Math.random() * Math.floor(max));
     return this.apiRandomEnemy(id);
+  }
+  ngOnInit(){
+    this.getRandomInt(150);
   }
 
   constructor(private api: ApiService) { }
@@ -106,4 +114,46 @@ export class BattleComponent {
     this.childPlayerPokemon.currentHp = this.childPlayerPokemon.currentHp - attackAmt;
   }
 
+  bagEmpty() {
+    this.moveResult = true;
+    this.emptyBag = true;
+    this.startMenu = false;
+    setTimeout(() => {
+      this.startMenu = true;
+      this.moveResult = false;
+      this.emptyBag = false;
+    }, 4000)
+  }
+  noPokemon() {
+    this.moveResult = true;
+    this.noPocketmonsters = true;
+    this.startMenu = false;
+    setTimeout(() => {
+      this.startMenu = true;
+      this.moveResult = false;
+      this.noPocketmonsters = false;
+    }, 4000)
+  }
+  runAttempt(){
+    let attempt = Math.floor(Math.random() * Math.floor(100));
+    if( attempt <= 80) {
+      this.moveResult =  true;
+      this.runSuccess = true;
+      this.startMenu = false;
+      setTimeout(() => {
+        this.startMenu = true;
+        this.moveResult =  false;
+        this.runSuccess = false;
+      }, 4000)
+    } else {
+      this.moveResult =  true;
+      this.runFailure = true;
+      this.startMenu = false;
+      setTimeout(() => {
+        this.startMenu = true;
+        this.moveResult =  false;
+        this.runFailure = false;
+      }, 4000)
+    }
+  }
 }

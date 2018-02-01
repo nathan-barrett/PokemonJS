@@ -44,12 +44,11 @@
   <div class="fight-menu">
     <div class="right-menu">
       <h3 (click)="goToMoveList()">FIGHT</h3>
-      <h3>BAG</h3>
-      <h3>POKEMON</h3>
-      <h3>RUN</h3>
+      <h3 (click)="bagEmpty()">BAG</h3>
+      <h3 (click)="noPokemon()">POKEMON</h3>
+      <h3 (click)="runAttempt()">RUN</h3>
     </div>
   </div>
-  <button (click)="getRandomInt(151)">enemy</button>
 </div>
 <div *ngIf="moveResult" class="move-result-menu">
   <div class="yellow-border">
@@ -58,6 +57,10 @@
       <h2 *ngIf="attackFailure">{{childPlayerPokemon?.name}}'s attack missed!</h2>
       <h2 *ngIf="enemySuccess">{{childEnemyPokemon?.name}} used {{childEnemyPokemon?.moves[this.randomAttack]}}!</h2>
       <h2 *ngIf="enemyFailure">{{childEnemyPokemon?.name}}'s attack missed!</h2>
+      <h2 *ngIf="emptyBag">Your Bag is Empty!</h2>
+      <h2 *ngIf="noPocketmonsters">You haven't caught any other Pokemon!</h2>
+      <h2 *ngIf="runSuccess">Got away safely!</h2>
+      <h2 *ngIf="runFailure">Your attemt to run has failed!</h2>
     </div>
   </div>
 </div>
