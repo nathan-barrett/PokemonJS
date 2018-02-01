@@ -22,7 +22,7 @@ export class BattleComponent {
   selectedMove: string;
   attackSuccess: boolean = false;
   attackFailure: boolean = false;
-
+  death: boolean = false;
 
   getRandomInt(max) {
     let id = Math.floor(Math.random() * Math.floor(max));
@@ -72,8 +72,11 @@ export class BattleComponent {
   randomNumber() {
     let attackAmt = Math.floor(Math.random() * (25 - 5) + 5);
     this.childEnemyPokemon.currentHp = this.childEnemyPokemon.currentHp - attackAmt;
-    console.log(this.childEnemyPokemon.currentHp);
-
+    if(this.childEnemyPokemon.currentHp < 1){
+      console.log("enemy died");
+      this.death = true;
+    }else{
+      console.log("enemy alive" + this.childEnemyPokemon.currentHp);
+    }
   }
-
 }
