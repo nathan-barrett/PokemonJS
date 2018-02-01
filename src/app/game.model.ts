@@ -79,7 +79,9 @@ export class Game {
     else if (this.keyboard.isDown(this.keyboard.DOWN)) { diry = 1; }
     else if (this.keyboard.isDown(this.keyboard.S_DOWN)) { diry = 1; }
 
-    this.hero.move(delta, dirx, diry);
+    if (this.hero.move(delta, dirx, diry)){
+      console.log("FIGHT! FIGHT! FIGHT!");
+    }
     // this.camera.update();
   }
 
