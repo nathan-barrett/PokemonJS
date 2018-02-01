@@ -9,6 +9,7 @@ export class Game {
   private hero: Hero;
   private tileAtlas;
   private sourceTileSize = 16;
+  public inBattle: boolean = false;
 
   constructor(public loader: Loader, public keyboard: Keyboard, public map: Map){
     this.tick = this.tick.bind(this);
@@ -81,8 +82,13 @@ export class Game {
 
     if (this.hero.move(delta, dirx, diry)){
       console.log("FIGHT! FIGHT! FIGHT!");
+      this.toggleBattle();
     }
     // this.camera.update();
+  }
+
+  toggleBattle(){
+    this.inBattle = !this.inBattle;
   }
 
   _drawLayer(layer: number){
