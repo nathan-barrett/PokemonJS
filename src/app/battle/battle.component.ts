@@ -139,7 +139,7 @@ export class BattleComponent implements OnInit {
     this.childEnemyPokemon.currentHp = this.childEnemyPokemon.currentHp - attackAmt;
   }
   randomNumberEnemy() {
-    let attackAmt = Math.floor(Math.random() * (20 - 5) + 5);
+    let attackAmt = Math.floor(Math.random() * (15 - 5) + 5);
     this.childPlayerPokemon.currentHp = this.childPlayerPokemon.currentHp - attackAmt;
   }
 
