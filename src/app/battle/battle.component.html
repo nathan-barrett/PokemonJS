@@ -33,7 +33,7 @@
     </div>
   </div>
 </div>
-<app-death-alert *ngIf="death"></app-death-alert>
+<app-death-alert *ngIf="death" [playerDeath]="playerDeath" [enemyDeath]="enemyDeath"></app-death-alert>
 <div *ngIf="startMenu" id="menu">
   <div class="left-menu">
     <div class="yellow-menu">

@@ -21,7 +21,6 @@ export class AppComponent {
   }
 
   toggleBattle(){
-    console.log("Fight message received, toggling battle");
     this.battle = !this.battle;
   }
 }
