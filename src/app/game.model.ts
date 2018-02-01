@@ -9,6 +9,7 @@ export class Game {
   private hero: Hero;
   private tileAtlas;
   private sourceTileSize = 16;
+  public inBattle: boolean = false;
 
   constructor(public loader: Loader, public keyboard: Keyboard, public map: Map){
     this.tick = this.tick.bind(this);
@@ -79,8 +80,15 @@ export class Game {
     else if (this.keyboard.isDown(this.keyboard.DOWN)) { diry = 1; }
     else if (this.keyboard.isDown(this.keyboard.S_DOWN)) { diry = 1; }
 
-    this.hero.move(delta, dirx, diry);
+    if (this.hero.move(delta, dirx, diry)){
+      console.log("FIGHT! FIGHT! FIGHT!");
+      this.toggleBattle();
+    }
     // this.camera.update();
+  }
+
+  toggleBattle(){
+    this.inBattle = !this.inBattle;
   }
 
   _drawLayer(layer: number){

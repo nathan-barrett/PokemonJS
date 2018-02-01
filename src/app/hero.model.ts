@@ -5,6 +5,7 @@ export class Hero {
   SPEED: number = 256; //pixels per second
   width: number;
   height: number;
+  stepsSinceLastFight: number = 0;
   image;
 
   constructor(
@@ -32,6 +33,16 @@ export class Hero {
     let maxY = this.map.rows * this.map.tileSize;
     this.x = Math.max(0, Math.min(this.x, maxX));
     this.y = Math.max(0, Math.min(this.y, maxY));
+
+    // track steps on movement?
+    if (dirx || diry){
+      this.stepsSinceLastFight++;
+    }
+
+    if (this.stepsSinceLastFight > 500){
+      this.stepsSinceLastFight = 0
+      return true
+    }
   }
 
   _collide( dirx: number, diry: number ){
