@@ -34,3 +34,12 @@ Install [Allow-Control-Allow-Origin Chrome Plugin](https://chrome.google.com/web
 * This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
 * Utilizes the RESTful API, [PokeAPI](https://pokeapi.co/)
+
+### Random Encounter Logic
+
+From (Wikipedia)[]:
+> 1. Set X to a random integer between 64 and 255.
+> 2. For each step in plains, decrement X by 4. For each step in forest, swamp, or desert, decrement X by 8.
+> 3. When X < 0, a fight ensues. Go to step 1.
+
+This logic will require counting the number of squares the player character moves and decrementing a variable in the game object with each one.
