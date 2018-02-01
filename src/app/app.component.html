@@ -1,7 +1,7 @@
-
-<app-starter (pokemonEmitter)='setPlayerPokemon($event)'></app-starter>
-<div *ngIf="battle">
-  <app-battle (enemyEmitter)='setEnemyPokemon($event)' [childPlayerPokemon]="playerPokemon" [childEnemyPokemon]="enemyPokemon"></app-battle>
+<div class="container">
+  <app-starter *ngIf="!playerPokemon" (pokemonEmitter)='setPlayerPokemon($event)'></app-starter>
+  <div *ngIf="battle">
+    <app-battle (enemyEmitter)='setEnemyPokemon($event)' (endBattleEmitter)='toggleBattle' [childPlayerPokemon]="playerPokemon" [childEnemyPokemon]="enemyPokemon"></app-battle>
+  </div>
+  <app-map *ngIf="!battle && playerPokemon" (fightEmitter)='toggleBattle($event)'></app-map>
 </div>
-<app-map></app-map>
-

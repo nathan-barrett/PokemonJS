@@ -27,8 +27,8 @@
       </div>
       <div class="HP"></div>
       <div class="bar">
-        HP<progress value="100" max="100">0%</progress>
-        <h5>{{childPlayerPokemon?.hp}}/{{childPlayerPokemon?.hp}}</h5>
+        HP<progress value={{childPLayerPokemon?.currentHp}} max={{childPlayerPokemon?.hp}}>0%</progress>
+        <h5>{{childPlayerPokemon?.currentHp}}/{{childPlayerPokemon?.hp}}</h5>
       </div>
     </div>
   </div>
@@ -50,13 +50,15 @@
       <h3>RUN</h3>
     </div>
   </div>
-  <button (click)="getRandomInt(151)" (click)="randomLevel(20)">enemy</button>
+  <button (click)="getRandomInt(151)">enemy</button>
 </div>
 <div *ngIf="moveResult" class="move-result-menu">
   <div class="yellow-border">
     <div class="inner-menu">
       <h2 *ngIf="attackSuccess">{{childPlayerPokemon?.name}} used {{this.selectedMove}}!</h2>
       <h2 *ngIf="attackFailure">{{childPlayerPokemon?.name}}'s attack missed!</h2>
+      <h2 *ngIf="enemySuccess">{{childEnemyPokemon?.name}} used {{childEnemyPokemon?.moves[this.randomAttack]}}!</h2>
+      <h2 *ngIf="enemyFailure">{{childEnemyPokemon?.name}}'s attack missed!</h2>
     </div>
   </div>
 </div>
