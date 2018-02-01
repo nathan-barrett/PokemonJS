@@ -22,6 +22,8 @@ export class BattleComponent implements OnInit {
   selectedMove: string;
   attackSuccess: boolean = false;
   attackFailure: boolean = false;
+  death: boolean = false;
+
   enemySuccess: boolean = false;
   enemyFailure: boolean = false;
   emptyBag: boolean = false;
@@ -29,8 +31,6 @@ export class BattleComponent implements OnInit {
   runSuccess: boolean = false;
   runFailure: boolean = false;
   randomAttack: number;
-
-
 
   getRandomInt(max) {
     let id = Math.floor(Math.random() * Math.floor(max));
@@ -107,11 +107,20 @@ export class BattleComponent implements OnInit {
   randomNumber() {
     let attackAmt = Math.floor(Math.random() * (25 - 5) + 5);
     this.childEnemyPokemon.currentHp = this.childEnemyPokemon.currentHp - attackAmt;
+
+    if(this.childEnemyPokemon.currentHp < 1){
+      console.log("enemy died");
+      this.death = true;
+    }else{
+      console.log("enemy alive" + this.childEnemyPokemon.currentHp);
+    }
+
     console.log(this.childEnemyPokemon.currentHp);
   }
   randomNumberEnemy() {
     let attackAmt = Math.floor(Math.random() * (25 - 5) + 5);
     this.childPlayerPokemon.currentHp = this.childPlayerPokemon.currentHp - attackAmt;
+
   }
 
   bagEmpty() {
@@ -156,4 +165,5 @@ export class BattleComponent implements OnInit {
       }, 4000)
     }
   }
+
 }
