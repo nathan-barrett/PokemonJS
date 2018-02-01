@@ -23,6 +23,9 @@ export class BattleComponent implements OnInit{
   selectedMove: string;
   attackSuccess: boolean = false;
   attackFailure: boolean = false;
+<<<<<<< HEAD
+  death: boolean = false;
+=======
   enemySuccess: boolean = false;
   enemyFailure: boolean = false;
   randomAttack: number;
@@ -32,6 +35,7 @@ export class BattleComponent implements OnInit{
   ngOnInit(){
     this.getRandomInt(150);
   }
+>>>>>>> 3cb107b4473cb8655f2fc169d8f1227bc720fd9b
 
   getRandomInt(max) {
     let id = Math.floor(Math.random() * Math.floor(max));
@@ -116,11 +120,19 @@ export class BattleComponent implements OnInit{
   randomNumber() {
     let attackAmt = Math.floor(Math.random() * (25 - 5) + 5);
     this.childEnemyPokemon.currentHp = this.childEnemyPokemon.currentHp - attackAmt;
+<<<<<<< HEAD
+    if(this.childEnemyPokemon.currentHp < 1){
+      console.log("enemy died");
+      this.death = true;
+    }else{
+      console.log("enemy alive" + this.childEnemyPokemon.currentHp);
+    }
+=======
     console.log(this.childEnemyPokemon.currentHp);
   }
   randomNumberEnemy() {
     let attackAmt = Math.floor(Math.random() * (25 - 5) + 5);
     this.childPlayerPokemon.currentHp = this.childPlayerPokemon.currentHp - attackAmt;
+>>>>>>> 3cb107b4473cb8655f2fc169d8f1227bc720fd9b
   }
-
 }
