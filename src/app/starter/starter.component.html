@@ -1,9 +1,14 @@
-<div class="container">
-  <p>Select your Pokémon!</p>
+<div class="logo-image">
+  <img src="../assets/images/logo.png" alt="">
+</div>
+<div class="flex-container">
+  <p>Select your Starter Pokémon!</p>
   <img src="../assets/squirtle.png" alt="">
   <button class="btn btn-info" (click)="getStarterPokemon('squirtle')">Squirtle</button>
   <img src="../assets/charmander.png" alt="">
   <button class="btn btn-danger" (click)="getStarterPokemon('charmander')">Charmander</button>
   <img src="../assets/bulbasaur.png" alt="">
   <button class="btn btn-success" (click)="getStarterPokemon('bulbasaur')">Bulbasaur</button>
+  <img src="../assets/pokeball.gif" id="pokeball" alt="">
+  <button class="btn btn-warning" (click)="getRandomInt(150)">Random</button>
 </div>

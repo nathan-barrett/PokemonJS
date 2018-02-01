@@ -9,6 +9,7 @@ import { Pokemon, Pokemonenemy } from './pokemon.model';
 import { HttpModule } from '@angular/http';
 import { MovesComponent } from './moves/moves.component';
 import { RunAwayComponent } from './run-away/run-away.component';
+import { DeathAlertComponent } from './death-alert/death-alert.component';
 
 
 
@@ -19,7 +20,8 @@ import { RunAwayComponent } from './run-away/run-away.component';
     StarterComponent,
     MovesComponent,
     RunAwayComponent,
-    MapComponent
+    MapComponent,
+    DeathAlertComponent
   ],
   imports: [
     BrowserModule,

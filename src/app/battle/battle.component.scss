@@ -42,9 +42,9 @@
         justify-content: space-between;
         padding: 2%;
       }
-      .bar {
-        margin: 24px;
-      }
+      // .bar {
+      //   margin: 24px;
+      // }
     }
   }
   .opponent-info {
@@ -148,6 +148,7 @@
       background: #295068;
       display: flex;
       align-items: center;
+      color: #e1d8e0;
     }
     #menu-prompt {
       width: 90%;
@@ -216,6 +217,9 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
+      h2 {
+        color: #e1d8e0;
+      }
     }
   }
 }
