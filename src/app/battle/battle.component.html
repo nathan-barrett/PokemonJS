@@ -67,3 +67,7 @@
 </div>
 <app-moves *ngIf="moveScreen" [childPlayerPokemon]="childPlayerPokemon" (attackEmitter)="setDamage($event)"></app-moves>
 <app-run-away *ngIf="runScreen"></app-run-away>
+<audio controls autoplay>
+  <source src="../assets/battle.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
