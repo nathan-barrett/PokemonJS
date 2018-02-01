@@ -51,7 +51,6 @@ export class MapComponent implements OnInit {
   }
 
   makeFight(){
-    console.log("Making fight...");
     this.fightEmitter.emit();
   }
 

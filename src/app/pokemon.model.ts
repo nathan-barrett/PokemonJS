@@ -5,7 +5,7 @@ export class Pokemon {
     public currentHp: number,
     public type: string,
     public name: string,
-    public moves: string[]
+    public moves: string[],
   ){}
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-death-alert',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./death-alert.component.scss']
 })
 export class DeathAlertComponent implements OnInit {
+  @Input() enemyDeath: boolean = false;
+  @Input() playerDeath: boolean = false;
 
   constructor() { }
 

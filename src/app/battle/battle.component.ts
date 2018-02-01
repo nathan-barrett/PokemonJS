@@ -48,16 +48,13 @@ export class BattleComponent implements OnInit {
       this.opponent = response.json();
       this.childPlayerPokemon.currentHp = this.childPlayerPokemon.hp;
       const enemyPokemon = new Pokemonenemy(this.opponent.sprites.front_default, this.opponent.stats[5].base_stat, this.opponent.stats[5].base_stat, this.opponent.types[0].type.name, this.opponent.name,[this.opponent.moves[0].move.name, this.opponent.moves[1].move.name, this.opponent.moves[2].move.name, this.opponent.moves[3].move.name]);
-      console.log("New Enemy Made");
       this.enemyEmitter.emit(enemyPokemon);
 
     });
   }
 
   enemyAttack() {
-    console.log("It Enemy turn")
     this.randomAttack = Math.floor(Math.random() * (4 - 0) + 0);
-    console.log("enemy used " + this.childEnemyPokemon.moves[this.randomAttack]);
     this.attackSuccess = false;
     this.attackFailure = false;
     let number = Math.floor(Math.random() * Math.floor(100));
@@ -114,36 +111,35 @@ export class BattleComponent implements OnInit {
       this.enemyDeath = true;
       this.moveResult = false;
       setTimeout(() => {
-        this.returnToMap()
+        this.returnToMap();
       }, 3000)
+    }else{
+      setTimeout(() => {
+        this.enemyAttack();
+      }, 3000)
+    }
+  }
+  isPlayerDead() {
+    if(this.childPlayerPokemon.currentHp < 1){
+      this.death = true;
+      this.moveResult = false;
+      this.playerDeath = true;
+      setTimeout(() => {
+        this.returnToMap()
+      }, 5000)
     }else{
       setTimeout(() => {
         this.returnToMenu();
       }, 3000)
     }
   }
-  isPlayerDead() {
-    if(this.childPlayerPokemon.currentHp < 1){
-      this.playerDeath = true;
-      this.death = true;
-      this.moveResult = false;
-      console.log("you ded");
-      setTimeout(() => {
-        this.returnToMap()
-      }, 3000)
-    }else{
-      setTimeout(() => {
-        this.enemyAttack()
-      }, 3000)
-    }
-  }
 
   randomNumber() {
-    let attackAmt = Math.floor(Math.random() * (20 - 5) + 5);
+    let attackAmt = Math.floor(Math.random() * (20- 5) + 5);
     this.childEnemyPokemon.currentHp = this.childEnemyPokemon.currentHp - attackAmt;
   }
   randomNumberEnemy() {
-    let attackAmt = Math.floor(Math.random() * (100 - 5) + 5);
+    let attackAmt = Math.floor(Math.random() * (20 - 5) + 5);
     this.childPlayerPokemon.currentHp = this.childPlayerPokemon.currentHp - attackAmt;
   }
 
@@ -189,7 +185,8 @@ export class BattleComponent implements OnInit {
         this.startMenu = true;
         this.moveResult =  false;
         this.runSuccess = false;
-      }, 4000)
+        this.returnToMap();
+      }, 2000)
     } else {
       this.moveResult =  true;
       this.runFailure = true;
