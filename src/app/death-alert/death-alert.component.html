@@ -1,7 +1,8 @@
 <div id="run-away-menu">
   <div class="gray-border">
     <div class="inner-menu">
-      <h3>The wild Pokémon has fainted!</h3>
+      <h2 *ngIf="enemyDeath">The wild Pokémon has fainted!</h2>
+      <h2 *ngIf="playerDeath">GAME OVER</h2>
     </div>
   </div>
 </div>
