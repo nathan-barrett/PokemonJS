@@ -3,6 +3,14 @@
 
 An Angular JS Pokemon battle game.
 
+### Gameplay
+
+![screen shot of start screen](https://raw.githubusercontent.com/nathan-barrett/PokemonJS/master/src/assets/starter.png)
+
+![screen shot of map screen](https://raw.githubusercontent.com/nathan-barrett/PokemonJS/master/src/assets/map.png)
+
+![screen shot of battle screen](https://raw.githubusercontent.com/nathan-barrett/PokemonJS/master/src/assets/battle.png)
+
 ### Authors
 
 * Nathan Barrett -- [GitHub](https://github.com/nathan-barrett)
